@@ -1,0 +1,13 @@
+.message__text {
+	font-size: 16px;
+	display: block;
+	padding: 10px;
+	background: #eee;
+	margin: 0 0 20px 0;
+}
+.message__text--error {
+	color: darkred
+}
+.message__text--success {
+	color: darkgreen;
+}

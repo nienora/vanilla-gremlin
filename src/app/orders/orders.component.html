@@ -1,0 +1,47 @@
+<h2 class="title">Поруџбине</h2>
+
+<p class="text">Преглед Ваших тренутних и прошлих поруџбина можете видети испод.</p>
+
+<table class="orders" *ngIf="orders.length > 0">
+	<thead class="orders__head">
+		<tr>
+			<th class="orders__th">Број</th>
+			<th class="orders__th">Опис поруџбине</th>
+			<th class="orders__th">Време</th>
+			<th class="orders__th">Укупно</th>
+			<th class="orders__th">Статус</th>
+		</tr>
+	</thead>
+	<tbody class="orders__body">
+		<tr class="order" *ngFor="let order of orders">
+			<td class="order__td">{{order.id}}</td>
+			<td class="order__td">
+				<div class="order__info">
+					<small>{{order.date | date:'d/M/yy hh:mm'}}</small>
+					<br>
+					<strong>{{order.productName}} &times; {{order.qty}}</strong>
+					<br>
+					{{order.userName}}
+					<br>
+					{{order.userContact}}
+				</div>
+
+				<div class="order__review" *ngIf="order.review">
+					Оцена: {{order.review.rating}}
+					<br>
+					Коментар: {{order.review.comment}}
+				</div>
+
+				<div class="order__actions" *ngIf="order.status != 'ОТКАЗАНА'">
+					<button class="order__button" *ngIf="order.status == 'ТЕКУЋА'" (click)="cancel(order.id)">Откажи</button>
+					<button class="order__button" *ngIf="order.status == 'ЗАВРШЕНА' && !order.review" (click)="review(order.id)">Остави утисак</button>
+				</div>
+			</td>
+			<td class="order__td">{{order.time}} мин</td>
+			<td class="order__td">{{order.total}} РСД</td>
+			<td class="order__td">{{order.status}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<p class="text" *ngIf="orders.length == 0">Не постоје наруџбине за приказ.</p>

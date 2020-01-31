@@ -1,0 +1,64 @@
+<h2 class="title">Мени</h2>
+
+<p class="text">Претражите наш мени да бисте нашли храну која вам одговара!</p>
+
+<form class="form">
+	<div class="form__row">
+		<div class="form__column form__column--double">
+			<div class="form__group">
+				<label class="form__label" for="query">Претрага имена и описа</label>
+				<input class="form__input" type="text" name="query" placeholder="Унесите кључне речи ..." [(ngModel)]="form.query" (ngModelChange)="doSearch()" />
+			</div>
+		</div>
+
+		<div class="form__column">
+			<div class="form__group">
+				<label class="form__label" for="priceMax">Макс. цена (РСД)</label>
+				<input class="form__input" type="number" step="1" name="priceMax" placeholder="Унесите цену ..." [(ngModel)]="form.priceMax" (ngModelChange)="doSearch()" />
+			</div>
+		</div>
+
+		<div class="form__column">
+			<div class="form__group">
+				<label class="form__label" for="timeMAx">Макс. време (мин)</label>
+				<input class="form__input" type="number" step="1" name="timeMax" placeholder="Унесите време ..." [(ngModel)]="form.timeMax" (ngModelChange)="doSearch()" />
+			</div>
+		</div>
+
+		<div class="form__column">
+			<div class="form__group">
+				<label class="form__label" for="averageRating">Просечна оцена</label>
+				<select class="form__select" name="averageRating" [(ngModel)]="form.averageRating" (ngModelChange)="doSearch()">
+					<option [ngValue]=""></option>
+					<option [ngValue]="1">1 - нејестиво</option>
+					<option [ngValue]="2">2 - лоше</option>
+					<option [ngValue]="3">3 - подношљиво</option>
+					<option [ngValue]="4">4 - добро</option>
+					<option [ngValue]="5">5 - одлично</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</form>
+
+<ul class="products" *ngIf="products.length > 0">
+	<li class="product" *ngFor="let product of products">
+		<img class="product__image" src="assets/img/food.png" alt="{{product.name}}" />
+
+		<div class="product__info">
+			<div class="product__name">{{product.name}}</div>
+			<div class="product__description">{{product.description}}</div>
+			<div class="product__rating" *ngIf="product.productRating">Просечна оцена: {{product.productRating}}</div>
+		</div>
+
+		<img *ngIf="product.isFavorite" class="product__favorite" src="assets/img/heart.png" alt="Омиљени производ" />
+
+		<div class="product__price">{{product.price}} РСД</div>
+
+		<div class="product__time">{{product.time}} мин</div>
+
+		<button class="product__button" (click)="viewProduct(product.id)">Изабери</button>
+	</li>
+</ul>
+
+<p class="text" *ngIf="products.length == 0">Не постоје производи за задати критеријум претраге.</p>

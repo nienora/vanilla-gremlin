@@ -1,0 +1,88 @@
+<div class="product" *ngIf="product">
+	<div class="product__info">
+		<div class="product__header">
+			<h2 class="title product__title">{{product.name}}</h2>
+
+			<img src="assets/img/heart.png" [ngClass]="{'product__favorite': true, 'product__favorite--inactive': isFavorite, 'product__favorite--inactive': !isFavorite}" (click)="favorite()" alt="Омиљени производ" />
+		</div>
+
+		<p class="text">{{product.description}}</p>
+
+		<div class="product__details">
+			<div class="product__detail">
+				<div class="product__label">Цена</div>
+				<div class="product__value">{{product.price}} РСД</div>
+			</div>
+			
+			<div class="product__detail">
+				<div class="product__label">Време</div>
+				<div class="product__value">{{product.time}} мин</div>
+			</div>
+
+			<div class="product__detail" *ngIf="product.productRating">
+				<div class="product__label">Оцена</div>
+				<div class="product__value">{{product.productRating}}</div>
+			</div>
+		</div>
+
+		<h3 class="subtitle">Достава</h3>
+
+		<form class="form">
+			<div class="form__row">
+				<div class="form__column form__column--quarter">
+					<div class="form__group">
+						<label class="form__label" for="qty">Количина</label>
+						<input class="form__input" type="number" name="qty" min="1" step="1" placeholder="Количина .." [(ngModel)]="form.qty" />
+					</div>
+				</div>
+		
+				<div class="form__column">
+					<div class="form__group form__group--right">
+						<label class="form__label">Укупно</label>
+						<div class="form__total">{{total}} РСД</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form__row">
+				<div class="form__column">
+					<div class="form__group">
+						<label class="form__label" for="firstname">Име</label>
+						<input class="form__input" type="text" name="firstname" placeholder="Унесите име .." [(ngModel)]="form.firstname" />
+					</div>
+				</div>
+		
+				<div class="form__column">
+					<div class="form__group">
+						<label class="form__label" for="lastname">Презиме</label>
+						<input class="form__input" type="text" name="lastname" placeholder="Унесите презиме .." [(ngModel)]="form.lastname" />
+					</div>
+				</div>
+			</div>
+		
+			<div class="form__row">
+				<div class="form__column">
+					<div class="form__group">
+						<label class="form__label" for="address">Адреса</label>
+						<input class="form__input" type="text" name="address" placeholder="Унесите адресу .." [(ngModel)]="form.address" />
+					</div>
+				</div>
+		
+				<div class="form__column">
+					<div class="form__group">
+						<label class="form__label" for="phone">Телефон</label>
+						<input class="form__input" type="text" name="phone" placeholder="Унесите телефон .." [(ngModel)]="form.phone" />
+					</div>
+				</div>
+			</div>
+
+			<div class="form__controls">
+				<button class="form__button" type="button" (click)="order()" [disabled]="!formComplete">Наручи</button>
+			</div>
+		</form>
+	</div>
+
+	<div class="product__gallery">
+		<img class="product__image" src="assets/img/food-large.png" alt="{{product.name}}" />
+	</div>
+</div>

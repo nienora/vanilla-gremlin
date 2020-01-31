@@ -1,0 +1,10 @@
+:host {
+	display: block;
+	border-top: 1px solid #ddd;
+	padding: 20px 0;
+}
+.footer__copy {
+	text-align: center;
+	margin: 0;
+	font-size: 14px;
+}

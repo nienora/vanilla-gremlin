@@ -1,0 +1,46 @@
+<h2 class="title">Остави утисак</h2>
+
+<p class="text">Молимо Вас, напишите коментар и дајте оцену за изабрану поруџбину како бисмо унапредили нашу услугу, хвала!</p>
+
+<div class="review" *ngIf="order">
+	<h3 class="subtitle">#{{order.id}} - {{order.productName}}</h3>
+
+	<p class="text">
+		Датум: {{order.date | date:'d/M/yy hh:mm'}}
+		<br>
+		Количина: {{order.qty}}
+		<br>
+		Укупно: {{order.total}} РСД
+	</p>
+
+	<form class="form">
+		<div class="form__row">
+			<div class="form__column form__column--quarter">
+				<div class="form__group">
+					<label class="form__label" for="rating">Оцена</label>
+					<select class="form__select" name="rating" [(ngModel)]="form.rating">
+						<option [ngValue]=""></option>
+						<option [ngValue]="1">1 - нејестиво</option>
+						<option [ngValue]="2">2 - лоше</option>
+						<option [ngValue]="3">3 - подношљиво</option>
+						<option [ngValue]="4">4 - добро</option>
+						<option [ngValue]="5">5 - одлично</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	
+		<div class="form__row">
+			<div class="form__column">
+				<div class="form__group">
+					<label class="form__label" for="comment">Коментар</label>
+					<textarea class="form__input" rows="5" name="comment" placeholder="Унесите коментар .." [(ngModel)]="form.comment"></textarea>
+				</div>
+			</div>
+		</div>
+
+		<div class="form__controls">
+			<button class="form__button" type="button" (click)="review()" [disabled]="!formComplete">Сачувај</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,25 @@
+<h2 class="title">Пријава</h2>
+
+<p class="text">Да бисте се пријавили молимо Вас попуните поља која се налазе испод.</p>
+
+<form class="form">
+	<div class="form__row">
+		<div class="form__column">
+			<div class="form__group">
+				<label class="form__label" for="email">Имејл</label>
+				<input class="form__input" type="email" name="email" placeholder="Унесите имејл .." [(ngModel)]="form.email" />
+			</div>
+		</div>
+
+		<div class="form__column">
+			<div class="form__group">
+				<label class="form__label" for="password">Лозинка</label>
+				<input class="form__input" type="password" name="password" placeholder="Унесите лозинку .." [(ngModel)]="form.password" />
+			</div>
+		</div>
+	</div>
+
+	<div class="form__contorls">
+		<button class="form__button" type="button" (click)="login()" [disabled]="!formComplete">Пријава</button>
+	</div>
+</form>

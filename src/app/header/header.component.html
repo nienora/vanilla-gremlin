@@ -1,0 +1,31 @@
+<h1 class="logo">
+	<a class="logo__link" routerLink="{{currentUser ? '/menu' : '/'}}">
+		<img class="logo__image" src="assets/img/narucivanje-hrane-logo.png" alt="Наручивање хране" />
+	</a>
+</h1>
+
+<nav class="nav">
+	<ul class="nav__list" *ngIf="!currentUser">
+		<li class="nav__item">
+			<a class="nav__link" routerLink="/login" routerActiveLink="nav__link--active">Пријава</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link" routerLink="/register" routerActiveLink="nav__link--active">Регистрација</a>
+		</li>
+	</ul>
+
+	<ul class="nav__list" *ngIf="currentUser">
+		<li class="nav__item">
+			<a class="nav__link" routerLink="/menu" routerActiveLink="nav__link--active">Мени</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link" routerLink="/orders" routerActiveLink="nav__link--active">Поруџбине</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link" routerLink="/profile" routerActiveLink="nav__link--active">Профил</a>
+		</li>
+		<li class="nav__item nav__item--logout">
+			<button class="nav__link" type="button" (click)="logout()">Одјава</button>
+		</li>
+	</ul>
+</nav>

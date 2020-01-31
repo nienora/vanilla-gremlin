@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'ArealRNIDS';
+    src: url('ArealRNIDS-Regular.woff2') format('woff2'); /* Modern Browsers */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+@font-face {
+    font-family: 'ArealRNIDS';
+    src: url('ArealRNIDS-Bold.woff2') format('woff2');	 /* Modern Browsers */
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+@font-face {
+    font-family: 'ArealRNIDS';
+    src: url('ArealRNIDS-BoldItalic.woff2') format('woff2'); /* Modern Browsers */
+    font-style: italic;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+@font-face {
+    font-family: 'ArealRNIDS';
+    src: url('ArealRNIDS-Italic.woff2') format('woff2'); /* Modern Browsers */
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}

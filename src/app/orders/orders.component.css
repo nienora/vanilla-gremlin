@@ -1,0 +1,39 @@
+.orders {
+	width: 100%;
+	border-collapse: collapse;
+}
+.orders__head {
+	background: #ddd;
+}
+.orders__th {
+	padding: 10px;
+	text-align: left;
+}
+.orders__body {
+
+}
+.order {
+
+}
+.order__td {
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+	text-align: left;
+}
+.order__review {
+	background: #eee;
+	padding: 10px;
+	font-size: 14px;
+	margin-top: 10px;
+}
+.order__actions {
+	margin-top: 10px;
+}
+.order__button {
+	background: tomato;
+	color: #fff;
+	padding: 5px;
+	border: 0;
+	font-size: 14px;
+	cursor: pointer;
+}

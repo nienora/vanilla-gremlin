@@ -1,0 +1,70 @@
+<h2 class="title">Профил</h2>
+
+<p class="text">Да бисте изменили податке молимо Вас попуните поља која се налазе испод.</p>
+
+<form class="form">
+	<div class="form__row">
+		<div class="form__column">
+			<div class="form__group">
+				<label class="form__label" for="firstname">Име</label>
+				<input class="form__input" type="text" name="firstname" placeholder="Унесите име .." [(ngModel)]="form.firstname" />
+			</div>
+		</div>
+
+		<div class="form__column">
+			<div class="form__group">
+				<label class="form__label" for="lastname">Презиме</label>
+				<input class="form__input" type="text" name="lastname" placeholder="Унесите презиме .." [(ngModel)]="form.lastname" />
+			</div>
+		</div>
+	</div>
+
+	<div class="form__row">
+		<div class="form__column">
+			<div class="form__group">
+				<label class="form__label" for="address">Адреса</label>
+				<input class="form__input" type="text" name="address" placeholder="Унесите адресу .." [(ngModel)]="form.address" />
+			</div>
+		</div>
+
+		<div class="form__column">
+			<div class="form__group">
+				<label class="form__label" for="phone">Телефон</label>
+				<input class="form__input" type="text" name="phone" placeholder="Унесите телефон .." [(ngModel)]="form.phone" />
+			</div>
+		</div>
+	</div>
+
+	<div class="form__row">
+		<div class="form__column form__column--half">
+			<div class="form__group">
+				<label class="form__label" for="email">Имејл</label>
+				<input class="form__input" type="email" name="email" placeholder="Унесите имејл .." [(ngModel)]="form.email" />
+			</div>
+		</div>
+	</div>
+
+	<h3 class="subtitle">Измена лозинке</h3>
+
+	<p class="text">Следећа поља оставите празна уколико не желите да измените лозинку.</p>
+
+	<div class="form__row">
+		<div class="form__column">
+			<div class="form__group">
+				<label class="form__label" for="password">Лозинка (опционо)</label>
+				<input class="form__input" type="password" name="password" placeholder="Унесите лозинку .." [(ngModel)]="form.password" />
+			</div>
+		</div>
+		
+		<div class="form__column">
+			<div class="form__group">
+				<label class="form__label" for="passwordConfirm">Лозинка (потврда)</label>
+				<input class="form__input" type="password" name="passwordConfirm" placeholder="Унесите лозинку опет .." [(ngModel)]="form.passwordConfirm" />
+			</div>
+		</div>
+	</div>
+
+	<div class="form__contorls">
+		<button class="form__button" type="button" (click)="updateProfile()" [disabled]="!formComplete">Сачувај</button>
+	</div>
+</form>
